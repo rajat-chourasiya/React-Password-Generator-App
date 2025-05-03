@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# 🔐 React Password Generator App
+![Screenshot password](https://github.com/user-attachments/assets/5165ee03-4721-40c2-bdaa-cf118301434c)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A secure and customizable password generator built with **React**. This app allows users to generate strong random passwords by selecting different character types (uppercase, lowercase, numbers, symbols) and password length.
+ 
+## 🚀 Features
 
-## Available Scripts
+✅ Generate strong random passwords  
+🔠 Toggle uppercase and lowercase characters  
+🔢 Include/exclude numbers and symbols  
+🎚️ Adjustable password length (8 to 20 characters)  
+📋 Copy password to clipboard  
+🔔 User notifications with `react-toastify`  
+⚛️ Built using React functional components and Hooks
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📁 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+src/
+├── App.css
+├── App.js
+├── data/
+│ └── PassChar.js # Contains character sets (UC, LC, NC, SC)
+├── index.js
+└── logo.svg
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🛠️ Tech Stack
+React
 
-### `npm test`
+React Hooks (useState)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React Toastify
 
-### `npm run build`
+JavaScript (ES6)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+HTML & CSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 How It Works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. App Component (`App.js`)
 
-### `npm run eject`
+- State hooks control:
+  - Selected character types (`uppercase`, `lowercase`, `number`, `symbols`)
+  - Password length
+  - Final generated password
+- Password is created by randomly picking characters from a compiled set based on selections
+- Clipboard API is used to copy the password
+- Input validation and feedback are provided using `react-toastify`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. `PassChar.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contains strings of:
+- Uppercase letters (UC)
+- Lowercase letters (LC)
+- Numbers (NC)
+- Symbols (SC)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Example:
+```js
+export const UC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+export const LC = "abcdefghijklmnopqrstuvwxyz";
+export const NC = "0123456789";
+export const SC = "~!@#$%^&*()_+=-`{}[]|:;<>,.?/";
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+📌 Notes
+At least one character type must be selected to generate a password.
 
-## Learn More
+The length can be set between 8 and 20 characters.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The generated password is read-only and can be copied using the "Copy" button.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Notifications require react-toastify
